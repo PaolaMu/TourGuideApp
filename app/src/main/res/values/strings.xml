@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TourGuideApp</string>
+    <string name="Hotels">Hotels</string>
+    <string name="Shop">Shop</string>
+    <string name="Eat">Eat</string>
+    <string name="Tour">Tour</string>
+    <string name="place_image">place_image</string>
+</resources>
