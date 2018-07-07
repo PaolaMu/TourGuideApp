@@ -1,60 +1,48 @@
 package com.example.android.tourguideapp;
 
 public class Place {
+    private int image;
     private String placeNameId;
+    private String pDescriptionId;
+    private String p_placeAddressId;
+    private String p_placeWebId;
+    private String p_placePhoneId;
+    private int placeImageId;
 
-    private String placeDescriptionId;
+    public Place(int image, String name1, String description1, String address1, String web1, String phone1) {
 
-    private String placeAddressId;
-
-    private int placeWebLink;
-
-    private String placePhoneId;
-
-    private int placeImageLink;
-
-
-    public Place(String placeNameId, String placeDescriptionId, String placeAddressId, int placeWebLink, String placePhoneId,
-                 int placeImageLink){
-
-       placeNameId = placeNameId;
-       placeDescriptionId = placeDescriptionId;
-       placeAddressId = placeAddressId;
-       placeWebLink = placeWebLink;
-       placePhoneId = placePhoneId;
-       placeImageLink = placeImageLink;
+        placeNameId = name1;
+        pDescriptionId = description1;
+        p_placeAddressId = address1;
+        p_placeWebId = web1;
+        p_placePhoneId = phone1;
+        placeImageId = image;
 
     }
 
-    public Place(String jw_marriot, String nicel_hotel, String s, String s1, String s2) {
-
-    }
 
     public String getPlaceNameId() {
         return placeNameId;
     }
 
     public String getPlaceDescriptionId() {
-        return placeDescriptionId;
-    }
-
-    public boolean hasImage() {
-        return false;
-    }
-
-    public int getPlaceImageId() {
-        return placeImageLink;
+        return pDescriptionId;
     }
 
     public String getPlaceAddressId() {
-        return placeAddressId;
+        return p_placeAddressId;
+    }
+
+    public String getPlaceWebId() {
+        return p_placeWebId;
     }
 
     public String getPlacePhoneId() {
-        return placePhoneId;
+        return p_placePhoneId;
     }
 
-    public int getPlaceWebId() {
-        return placeWebLink;
+    public int getPlaceImageId() {
+        return placeImageId;
     }
 }
+

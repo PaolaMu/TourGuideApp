@@ -7,8 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -21,39 +19,28 @@ public class AttractionsFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.city_list, container, false);
 
         // Create a list of places
-        final ArrayList<Place> places = new ArrayList<Place>();
-
-
-        places.add (new Place("JW Marriot","Nicel hotel","806 S Main St, Houston, TX 77002","https://www.marriott.com/hotels/travel/houdj-jw-marriott-houston-downtown/?scid=bb1a189a-fec3-4d19-a255-54ba596febe2",
-                "(713) 237-1111"));
-
+        ArrayList<Place> places = new ArrayList<Place>();
+        places.add(new Place(R.drawable.cockrell_image, getResources().getString(R.string.cockrell_name), getResources().getString(R.string.cockrell_description), getResources().getString(R.string.cockrell_address),
+                getResources().getString(R.string.cockrell_web), getResources().getString(R.string.cockrell_phone)));
+        places.add(new Place(R.drawable.waugh_image, getResources().getString(R.string.waugh_name), getResources().getString(R.string.waugh_description), getResources().getString(R.string.waugh_address),
+                getResources().getString(R.string.waugh_web), getResources().getString(R.string.waugh_phone)));
+        places.add(new Place(R.drawable.space_image, getResources().getString(R.string.space_name), getResources().getString(R.string.space_description), getResources().getString(R.string.space_address),
+                getResources().getString(R.string.space_web), getResources().getString(R.string.space_phone)));
+        places.add(new Place(R.drawable.aqua_image, getResources().getString(R.string.aqua_name), getResources().getString(R.string.aqua_description), getResources().getString(R.string.aqua_address),
+                getResources().getString(R.string.aqua_web), getResources().getString(R.string.aqua_phone)));
+        places.add(new Place(R.drawable.zoo_image, getResources().getString(R.string.zoo_name), getResources().getString(R.string.zoo_description), getResources().getString(R.string.zoo_address),
+                getResources().getString(R.string.zoo_web), getResources().getString(R.string.zoo_phone)));
 
         // Create an {@link PlaceAdapter}, whose data source is a list of {@link Place}s. The
         // adapter knows how to create list items for each item in the list.
-        PlaceAdapter adapter = new PlaceAdapter(getActivity(), places, R.color.attractions_color);
+        PlaceAdapter adapter = new PlaceAdapter(getActivity(), places);
+        ListView listView1 = (ListView) rootView.findViewById(R.id.city_list);
+        listView1.setAdapter(adapter);
 
-        // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
-        // There should be a {@link ListView} with the view ID called list, which is declared in the
-        // city_list.xml layout file.
-        ListView listView = (ListView) rootView.findViewById(R.id.list);
-
-        // Make the {@link ListView} use the {@link PlaceAdapter} we created above, so that the
-        // {@link ListView} will display list items for each {@link Place} in the list.
-        listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Get the {@link Place} object at the given position the user clicked on
-                Place place = places.get(position);
-
-            }
-        });
         return rootView;
-}
     }
+}
